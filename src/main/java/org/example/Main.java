@@ -13,7 +13,7 @@ public class Main {
     private static final int PUERTO = 21;
 
     public static void main(String[] args) {
-        try(Scanner scanner = new Scanner(System.in)) {
+        try(Scanner sc = new Scanner(System.in)) {
             //Creación del cliente FTP y variable para comprobar si el login es válido
             FTPClient ftpClient = new FTPClient();
             boolean logValido = false;
@@ -22,15 +22,15 @@ public class Main {
                 while(!logValido) {
                     //Mientras no se haya logueado correctamente, se seguirá pidiendo usuario y contraseña
                     System.out.print("Introduce un nombre de usuario: ");
-                    String nombreUsuario = scanner.nextLine();
+                    String nombreUsuario = sc.nextLine();
                     System.out.print("Introduce la contraseña (En caso anónimo, deja el campo vacío): ");
-                    String contraseña = scanner.nextLine();
+                    String contraseña = sc.nextLine();
 
                     ftpClient.connect(SERVIDOR, PUERTO);
                     logValido = ftpClient.login(nombreUsuario, contraseña);
                     if (logValido) {
                         System.out.println("Bienvenido, " + nombreUsuario);
-                        menu(ftpClient, scanner, nombreUsuario);
+                        menu(ftpClient, sc, nombreUsuario);
                         ftpClient.logout();
                     } else {
                         System.out.println("Error de conexión. Usuario o contraseña incorrectos.");
