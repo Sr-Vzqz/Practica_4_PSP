@@ -75,7 +75,7 @@ public class Main {
                 case 0:
                     return;
                 default:
-                    System.err.println("Opción no válida.");
+                    System.err.println("Opción no válida");
             }
         }
     }
@@ -96,7 +96,7 @@ public class Main {
         if (descarga) {
             System.out.println("Archivo descargado correctamente");
         } else {
-            System.out.println("Error al descargar el archivo.");
+            System.out.println("Error al descargar el archivo");
         }
     }
 
